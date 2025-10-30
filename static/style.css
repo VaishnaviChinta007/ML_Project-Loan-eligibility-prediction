@@ -1,0 +1,116 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f4f8fb;
+    color: #333;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 60, 150, 0.7), rgba(0, 60, 150, 0.7)),
+                url('https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.btn-primary {
+    background-color: #0066cc;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #004c99;
+}
+
+/* --- Form --- */
+.form-container {
+    max-width: 800px;
+    background: white;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.form-container h2 {
+    text-align: center;
+    color: #004c99;
+    margin-bottom: 30px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+/* --- Result Card --- */
+.result-card {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.result-card.success {
+    background-color: #d1f7d6;
+    color: #2e7d32;
+}
+.result-card.fail {
+    background-color: #f8d7da;
+    color: #c62828;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #004c99;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .form-container {
+        padding: 25px;
+    }
+}
