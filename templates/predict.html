@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<div class="form-container">
+    <h2><i class="fa-solid fa-hand-holding-dollar"></i> Loan Eligibility Form</h2>
+    <form action="{{ url_for('predict') }}" method="post" id="loanForm">
+        <div class="form-grid">
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-person"></i> Gender</label>
+                <select name="Gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <!-- Married -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-ring"></i> Marital Status</label>
+                <select name="Married" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Married</option>
+                    <option value="No">Unmarried</option>
+                </select>
+            </div>
+
+            <!-- Dependents -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-child"></i> Dependents</label>
+                <select name="Dependents" required>
+                    <option value="">Select</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+            </div>
+
+            <!-- Education -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-graduation-cap"></i> Education</label>
+                <select name="Education" required>
+                    <option value="">Select</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Not Graduate">Not Graduate</option>
+                </select>
+            </div>
+
+            <!-- Self Employed -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-briefcase"></i> Self Employed</label>
+                <select name="Self_Employed" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Applicant Income -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-wallet"></i> Applicant Income (₹)</label>
+                <input type="number" name="ApplicantIncome" placeholder="e.g. 50000" required>
+            </div>
+
+            <!-- Coapplicant Income -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-users"></i> Coapplicant Income (₹)</label>
+                <input type="number" name="CoapplicantIncome" placeholder="e.g. 20000" required>
+            </div>
+
+            <!-- Loan Amount -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-sack-dollar"></i> Loan Amount (₹)</label>
+                <input type="number" name="LoanAmount" placeholder="e.g. 150" required>
+            </div>
+
+            <!-- Loan Amount Term -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-calendar-days"></i> Loan Term (in days)</label>
+                <input type="number" name="Loan_Amount_Term" placeholder="e.g. 360" required>
+            </div>
+
+            <!-- Credit History -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-check-circle"></i> Credit History</label>
+                <select name="Credit_History" required>
+                    <option value="">Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <!-- Property Area -->
+            <div class="form-group">
+                <label><i class="fa-solid fa-building"></i> Property Area</label>
+                <select name="Property_Area" required>
+                    <option value="">Select</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Semiurban">Semiurban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn-primary">Check Eligibility</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result-card {% if 'Eligible' in prediction_text %}success{% else %}fail{% endif %}">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
+
+<footer>
+    <p>© 2025 Loan Eligibility Portal | Powered by Flask & ML</p>
+</footer>
+</body>
+</html>

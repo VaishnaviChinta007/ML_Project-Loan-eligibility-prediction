@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Check Your Loan Eligibility Instantly</h1>
+            <p>Smart. Fast. Reliable — Find out if you qualify for your dream loan today.</p>
+            <a href="{{ url_for('predict') }}" class="btn-primary">Check Eligibility</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Loan Eligibility Portal | Secure Banking Experience</p>
+    </footer>
+</body>
+</html>
